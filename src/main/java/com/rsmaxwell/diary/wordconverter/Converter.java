@@ -115,6 +115,7 @@ public class Converter {
 
 		File documentWordDir = new File(documentDir, "word");
 		File wordXmlFile = new File(documentWordDir, "document.xml");
+		System.out.println("Reading: " + wordXmlFile.toString());
 
 		if (!wordXmlFile.exists()) {
 			throw new Exception("wordXmlFile not found: " + wordXmlFile.getCanonicalPath());
@@ -134,7 +135,6 @@ public class Converter {
 	public void toHtml() throws Exception {
 
 		Path htmlPath = new File(fragmentDir, "fragment.html").toPath();
-
 		System.out.println("Writing: " + htmlPath.toString());
 
 		try (BufferedWriter writer = Files.newBufferedWriter(htmlPath)) {
