@@ -134,6 +134,9 @@ public class Converter {
 	public void toHtml() throws Exception {
 
 		Path htmlPath = new File(fragmentDir, "fragment.html").toPath();
+
+		System.out.println("Writing: " + htmlPath.toString());
+
 		try (BufferedWriter writer = Files.newBufferedWriter(htmlPath)) {
 
 			for (String paragraph : outputDocument.paragraphs) {
@@ -148,6 +151,5 @@ public class Converter {
 	}
 
 	public void cleanup() {
-		System.out.println("Converter.cleanup");
 	}
 }
