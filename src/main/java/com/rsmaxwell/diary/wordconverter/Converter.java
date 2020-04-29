@@ -70,6 +70,8 @@ public class Converter {
 
 	public void unzip() throws IOException {
 
+		System.out.println("Reading: " + wordDocument.toString());
+
 		try (ZipInputStream zis = new ZipInputStream(new FileInputStream(wordDocument))) {
 
 			ZipEntry zipEntry = zis.getNextEntry();
@@ -115,7 +117,6 @@ public class Converter {
 
 		File documentWordDir = new File(documentDir, "word");
 		File wordXmlFile = new File(documentWordDir, "document.xml");
-		System.out.println("Reading: " + wordXmlFile.toString());
 
 		if (!wordXmlFile.exists()) {
 			throw new Exception("wordXmlFile not found: " + wordXmlFile.getCanonicalPath());
