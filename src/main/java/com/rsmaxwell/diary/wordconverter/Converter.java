@@ -139,7 +139,7 @@ public class Converter {
 				throw new Exception("null html found in fragment: " + paragraph);
 			}
 
-			Path htmlPath = new File(fragmentDir, "fragment-generated.html").toPath();
+			Path htmlPath = new File(fragmentDir, "fragment.html").toPath();
 			try (BufferedWriter writer = Files.newBufferedWriter(htmlPath)) {
 				writer.write(paragraph);
 			}
