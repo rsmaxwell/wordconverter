@@ -133,14 +133,15 @@ public class Converter {
 
 	public void toHtml() throws Exception {
 
-		for (String paragraph : outputDocument.paragraphs) {
+		Path htmlPath = new File(fragmentDir, "fragment.html").toPath();
+		try (BufferedWriter writer = Files.newBufferedWriter(htmlPath)) {
 
-			if (paragraph == null) {
-				throw new Exception("null html found in fragment: " + paragraph);
-			}
+			for (String paragraph : outputDocument.paragraphs) {
 
-			Path htmlPath = new File(fragmentDir, "fragment.html").toPath();
-			try (BufferedWriter writer = Files.newBufferedWriter(htmlPath)) {
+				if (paragraph == null) {
+					throw new Exception("null html found in fragment: " + paragraph);
+				}
+
 				writer.write(paragraph);
 			}
 		}
