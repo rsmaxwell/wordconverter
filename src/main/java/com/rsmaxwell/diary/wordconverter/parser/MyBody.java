@@ -1,4 +1,4 @@
-package com.rsmaxwell.diaries.wordconverter.parser;
+package com.rsmaxwell.diary.wordconverter.parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.rsmaxwell.diaries.wordconverter.OutputDocument;
+import com.rsmaxwell.diary.wordconverter.OutputDocument;
 
 public class MyBody {
 

@@ -1,4 +1,4 @@
-package com.rsmaxwell.diaries.wordconverter;
+package com.rsmaxwell.diary.wordconverter;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -17,7 +17,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.rsmaxwell.diaries.wordconverter.parser.MyDocument;
+import com.rsmaxwell.diary.wordconverter.parser.MyDocument;
 
 public class Converter {
 

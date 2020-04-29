@@ -1,4 +1,4 @@
-package com.rsmaxwell.diaries.wordconverter;
+package com.rsmaxwell.diary.wordconverter;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;

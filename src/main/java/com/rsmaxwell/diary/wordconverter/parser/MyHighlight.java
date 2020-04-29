@@ -1,4 +1,4 @@
-package com.rsmaxwell.diaries.wordconverter.parser;
+package com.rsmaxwell.diary.wordconverter.parser;
 
 import org.w3c.dom.Element;
 

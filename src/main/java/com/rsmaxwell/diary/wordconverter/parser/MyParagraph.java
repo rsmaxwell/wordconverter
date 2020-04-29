@@ -1,4 +1,4 @@
-package com.rsmaxwell.diaries.wordconverter.parser;
+package com.rsmaxwell.diary.wordconverter.parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +68,7 @@ public class MyParagraph extends MyElement {
 		return sb.toString();
 	}
 
-	public void toOutput(com.rsmaxwell.diaries.wordconverter.OutputDocument outputDocument) {
+	public void toOutput(com.rsmaxwell.diary.wordconverter.OutputDocument outputDocument) {
 		outputDocument.paragraphs.add(toHtml());
 	}
 }

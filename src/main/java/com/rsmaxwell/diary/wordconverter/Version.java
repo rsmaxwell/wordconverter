@@ -1,4 +1,4 @@
-package com.rsmaxwell.diaries.wordconverter;
+package com.rsmaxwell.diary.wordconverter;
 
 public class Version {
 

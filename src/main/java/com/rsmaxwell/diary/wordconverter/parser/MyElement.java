@@ -1,4 +1,4 @@
-package com.rsmaxwell.diaries.wordconverter.parser;
+package com.rsmaxwell.diary.wordconverter.parser;
 
 public abstract class MyElement implements MyNode {
 

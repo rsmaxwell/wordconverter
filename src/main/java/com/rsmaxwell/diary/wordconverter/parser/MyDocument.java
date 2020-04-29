@@ -1,9 +1,9 @@
-package com.rsmaxwell.diaries.wordconverter.parser;
+package com.rsmaxwell.diary.wordconverter.parser;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import com.rsmaxwell.diaries.wordconverter.OutputDocument;
+import com.rsmaxwell.diary.wordconverter.OutputDocument;
 
 public class MyDocument {
 
