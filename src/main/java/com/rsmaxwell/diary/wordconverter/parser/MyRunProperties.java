@@ -55,6 +55,8 @@ public class MyRunProperties extends MyElement {
 					// ok
 				} else if ("w:rStyle".contentEquals(nodeName)) {
 					runProperties.elements.add(MyRunStyle.create(childElement, level + 1));
+				} else if ("w:noProof".contentEquals(nodeName)) {
+					// ok
 				} else {
 					throw new Exception("unexpected element: " + nodeName);
 				}
