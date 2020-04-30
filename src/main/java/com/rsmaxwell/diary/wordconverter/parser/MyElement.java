@@ -1,5 +1,8 @@
 package com.rsmaxwell.diary.wordconverter.parser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class MyElement implements MyNode {
 
 	@Override
@@ -45,5 +48,9 @@ public abstract class MyElement implements MyNode {
 
 	public String getVerticalAlign() {
 		return null;
+	}
+
+	public List<String> getPictures() {
+		return new ArrayList<String>();
 	}
 }

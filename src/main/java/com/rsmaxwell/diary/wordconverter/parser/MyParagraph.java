@@ -1,5 +1,6 @@
 package com.rsmaxwell.diary.wordconverter.parser;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,12 +49,33 @@ public class MyParagraph extends MyElement {
 	public String toHtml() {
 
 		StringBuilder sb = new StringBuilder();
-
 		for (MyRun run : runs) {
 			sb.append(run.toHtml());
 		}
+		String html = sb.toString().trim();
 
-		return "<p>" + sb.toString() + "</p>";
+		List<String> allPictures = new ArrayList<String>();
+		for (MyRun run : runs) {
+			List<String> pictures = run.getPictures();
+			allPictures.addAll(pictures);
+		}
+
+		if (allPictures.isEmpty()) {
+			return "<p>" + html + "</p>\n";
+		}
+		File file = new File(allPictures.get(0));
+		String name = file.getName();
+		File parent = file.getParentFile();
+		String parentName = parent.getName();
+		String image = parentName + "/" + name;
+
+		sb = new StringBuilder();
+		sb.append("<figure>\n");
+		sb.append("  <img src=\"" + image + "\" width=\"600px\" />\n");
+		sb.append("  <figcaption>" + html + "</figcaption>\n");
+		sb.append("</figure>\n");
+
+		return sb.toString();
 	}
 
 	@Override

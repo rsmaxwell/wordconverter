@@ -36,7 +36,7 @@ public class MyRun extends MyElement {
 				} else if ("w:lastRenderedPageBreak".contentEquals(nodeName)) {
 					// ok
 				} else if ("w:drawing".contentEquals(nodeName)) {
-					// ok
+					run.elements.add(MyDrawing.create(childElement, level + 1));
 				} else {
 					throw new Exception("unexpected element: " + nodeName);
 				}
@@ -44,6 +44,18 @@ public class MyRun extends MyElement {
 		}
 
 		return run;
+	}
+
+	@Override
+	public List<String> getPictures() {
+
+		List<String> allPictures = new ArrayList<String>();
+		for (MyElement element : elements) {
+			List<String> picture = element.getPictures();
+			allPictures.addAll(picture);
+		}
+
+		return allPictures;
 	}
 
 	@Override
