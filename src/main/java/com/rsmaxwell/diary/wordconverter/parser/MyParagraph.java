@@ -61,7 +61,7 @@ public class MyParagraph extends MyElement {
 		}
 
 		if (allPictures.isEmpty()) {
-			return "<p>" + html + "</p>\n";
+			return "<p>" + html + "</p>" + LS;
 		}
 		File file = new File(allPictures.get(0));
 		String name = file.getName();
@@ -70,10 +70,10 @@ public class MyParagraph extends MyElement {
 		String image = parentName + "/" + name;
 
 		sb = new StringBuilder();
-		sb.append("<figure>\n");
-		sb.append("  <img src=\"" + image + "\" width=\"600px\" />\n");
-		sb.append("  <figcaption>" + html + "</figcaption>\n");
-		sb.append("</figure>\n");
+		sb.append("<figure> + LS");
+		sb.append("  <img src=\"" + image + "\" width=\"600px\" /> + LS");
+		sb.append("  <figcaption>" + html + "</figcaption> + LS");
+		sb.append("</figure> + LS");
 
 		return sb.toString();
 	}
