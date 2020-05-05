@@ -69,16 +69,21 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 
-		CommandLine line = getCommandLine(args);
+		try {
+			CommandLine line = getCommandLine(args);
 
-		String baseDirName = line.getOptionValue("b");
-		String fragmentDirName = line.getOptionValue("f");
+			String baseDirName = line.getOptionValue("b");
+			String fragmentDirName = line.getOptionValue("f");
 
-		Converter converter = new Converter(baseDirName, fragmentDirName);
-		converter.clearDocumentDir();
-		converter.unzip();
-		converter.parse();
-		converter.toHtml();
-		converter.cleanup();
+			Converter converter = new Converter(baseDirName, fragmentDirName);
+			converter.clearDocumentDir();
+			converter.unzip();
+			converter.parse();
+			converter.toHtml();
+			converter.cleanup();
+
+		} catch (AppException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

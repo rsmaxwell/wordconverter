@@ -33,19 +33,19 @@ public class Converter {
 		this.fragmentDir = new File(baseDirName, fragmentDirName);
 
 		if (!fragmentDir.exists()) {
-			throw new Exception("directory not found: " + fragmentDir.getCanonicalPath());
+			throw new AppException("directory not found: " + fragmentDir.getCanonicalPath());
 		}
 		fragmentHtml = new File(fragmentDir, "fragment.html");
 		if (!fragmentHtml.exists()) {
-			throw new Exception("fragmentHtml not found: " + fragmentHtml.getCanonicalPath());
+			throw new AppException("fragmentHtml not found: " + fragmentHtml.getCanonicalPath());
 		}
 		fragmentJson = new File(fragmentDir, "fragment.json");
 		if (!fragmentJson.exists()) {
-			throw new Exception("fragmentJson not found: " + fragmentJson.getCanonicalPath());
+			throw new AppException("fragmentJson not found: " + fragmentJson.getCanonicalPath());
 		}
 		wordDocument = new File(fragmentDir, "document.docx");
 		if (!wordDocument.exists()) {
-			throw new Exception("wordDocument not found: " + wordDocument.getCanonicalPath());
+			throw new AppException("wordDocument not found: " + wordDocument.getCanonicalPath());
 		}
 
 		documentDir = new File(fragmentDir, "document");

@@ -49,6 +49,7 @@ public class MyParagraph extends MyElement {
 	public String toHtml() {
 
 		StringBuilder sb = new StringBuilder();
+
 		for (MyRun run : runs) {
 			sb.append(run.toHtml());
 		}
