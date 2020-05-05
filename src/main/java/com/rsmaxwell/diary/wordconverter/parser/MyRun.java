@@ -202,6 +202,7 @@ public class MyRun extends MyElement {
 	}
 
 	private static Map<String, String> colours = new HashMap<String, String>();
+
 	static {
 		colours.put("yellow", "yellow");
 		colours.put("green", "lime");
