@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
@@ -51,7 +52,7 @@ public class Converter {
 		documentDir = new File(fragmentDir, "document");
 	}
 
-	public void clearDocumentDir() throws IOException {
+	public void clearDocumentDir() throws IOException, AppException {
 
 		Path path = documentDir.toPath();
 
@@ -59,13 +60,11 @@ public class Converter {
 			Files.walk(path).sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
 		}
 
-		if (Files.exists(path)) {
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-			}
+		try {
+			Files.createDirectory(path);
+		} catch (FileAlreadyExistsException e) {
+			throw new AppException(e.getMessage());
 		}
-		Files.createDirectory(path);
 	}
 
 	public void unzip() throws IOException {
@@ -151,6 +150,13 @@ public class Converter {
 		}
 	}
 
-	public void cleanup() {
+	public void cleanup() throws IOException, AppException {
+
+		Path path = documentDir.toPath();
+
+		if (Files.exists(path)) {
+			Files.walk(path).sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
+		}
+		;
 	}
 }

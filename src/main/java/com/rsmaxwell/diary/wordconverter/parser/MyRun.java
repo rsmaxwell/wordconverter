@@ -146,10 +146,11 @@ public class MyRun extends MyElement {
 
 			if (size != null) {
 
-				int twicePointSize = Integer.parseInt(size);
-				int point = twicePointSize / 2;
+				double wordFontSize = Integer.parseInt(size);
+				double point = wordFontSize / 8.0;
+				String pointString = String.format("%.1f", point);
 
-				sb2.append(separator + "size=" + point + "pt");
+				sb2.append(separator + "size=" + pointString + "pt");
 				separator = " ";
 			}
 
