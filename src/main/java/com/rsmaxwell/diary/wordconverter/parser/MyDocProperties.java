@@ -1,8 +1,5 @@
 package com.rsmaxwell.diary.wordconverter.parser;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.w3c.dom.Element;
 
 public class MyDocProperties extends MyElement {
@@ -23,11 +20,7 @@ public class MyDocProperties extends MyElement {
 	}
 
 	@Override
-	public List<String> getPictures() {
-
-		List<String> allPictures = new ArrayList<String>();
-		allPictures.add(descr);
-
-		return allPictures;
+	public String getPicture() {
+		return descr;
 	}
 }

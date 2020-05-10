@@ -3,6 +3,7 @@ package com.rsmaxwell.diary.wordconverter.parser;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import com.rsmaxwell.diary.wordconverter.Converter;
 import com.rsmaxwell.diary.wordconverter.OutputDocument;
 
 public class MyDocument {
@@ -27,9 +28,9 @@ public class MyDocument {
 		return document;
 	}
 
-	public OutputDocument toOutput() throws Exception {
+	public OutputDocument toOutput(Converter converter) throws Exception {
 		OutputDocument outputDocument = new OutputDocument();
-		body.toOutput(outputDocument);
+		body.toOutput(outputDocument, converter);
 		return outputDocument;
 	}
 }

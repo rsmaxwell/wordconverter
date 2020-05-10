@@ -78,6 +78,7 @@ public class App {
 			Converter converter = new Converter(baseDirName, fragmentDirName);
 			converter.clearDocumentDir();
 			converter.unzip();
+			converter.initialiseRelationships();
 			converter.parse();
 			converter.toHtml();
 			converter.cleanup();

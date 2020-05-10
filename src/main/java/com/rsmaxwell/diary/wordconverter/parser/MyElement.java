@@ -1,8 +1,5 @@
 package com.rsmaxwell.diary.wordconverter.parser;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class MyElement implements MyNode {
 
 	protected static final String LS = System.getProperty("line.separator");
@@ -52,7 +49,11 @@ public abstract class MyElement implements MyNode {
 		return null;
 	}
 
-	public List<String> getPictures() {
-		return new ArrayList<String>();
+	public String getPicture() {
+		return null;
+	}
+
+	public String getHyperlinkId() {
+		return null;
 	}
 }

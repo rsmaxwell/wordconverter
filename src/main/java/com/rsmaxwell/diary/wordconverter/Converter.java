@@ -19,6 +19,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.rsmaxwell.diary.wordconverter.parser.MyDocument;
+import com.rsmaxwell.diary.wordconverter.relationships.Relationships;
 
 public class Converter {
 
@@ -28,6 +29,7 @@ public class Converter {
 	private File wordDocument;
 	private File documentDir;
 	private OutputDocument outputDocument;
+	private Relationships relationships;
 
 	public Converter(String baseDirName, String fragmentDirName) throws IOException, Exception {
 
@@ -76,22 +78,19 @@ public class Converter {
 			ZipEntry zipEntry = zis.getNextEntry();
 			while (zipEntry != null) {
 
-				if ("word/document.xml".contentEquals(zipEntry.getName())) {
+				File file = new File(documentDir, zipEntry.getName());
+				File parentFolder = new File(file.getParent());
+				parentFolder.mkdirs();
 
-					File file = new File(documentDir, zipEntry.getName());
-					File parentFolder = new File(file.getParent());
-					parentFolder.mkdirs();
+				File newFile = newFile(documentDir, zipEntry);
+				FileOutputStream fos = new FileOutputStream(newFile);
 
-					File newFile = newFile(documentDir, zipEntry);
-					FileOutputStream fos = new FileOutputStream(newFile);
-
-					byte[] buffer = new byte[1024];
-					int len;
-					while ((len = zis.read(buffer)) > 0) {
-						fos.write(buffer, 0, len);
-					}
-					fos.close();
+				byte[] buffer = new byte[1024];
+				int len;
+				while ((len = zis.read(buffer)) > 0) {
+					fos.write(buffer, 0, len);
 				}
+				fos.close();
 
 				zipEntry = zis.getNextEntry();
 			}
@@ -129,7 +128,7 @@ public class Converter {
 		Element root = doc.getDocumentElement();
 
 		MyDocument document = MyDocument.create(root, 0);
-		outputDocument = document.toOutput();
+		outputDocument = document.toOutput(this);
 	}
 
 	public void toHtml() throws Exception {
@@ -157,6 +156,13 @@ public class Converter {
 		if (Files.exists(path)) {
 			Files.walk(path).sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
 		}
-		;
+	}
+
+	public void initialiseRelationships() throws IOException, Exception {
+		relationships = new Relationships(documentDir);
+	}
+
+	public Relationships getRelationships() {
+		return relationships;
 	}
 }

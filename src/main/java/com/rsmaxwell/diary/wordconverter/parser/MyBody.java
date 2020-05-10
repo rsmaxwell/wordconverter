@@ -7,6 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.rsmaxwell.diary.wordconverter.Converter;
 import com.rsmaxwell.diary.wordconverter.OutputDocument;
 
 public class MyBody {
@@ -33,6 +34,8 @@ public class MyBody {
 					// ok
 				} else if ("w:bookmarkEnd".contentEquals(nodeName)) {
 					// ok
+				} else if ("w:bookmarkStart".contentEquals(nodeName)) {
+					// ok
 				} else {
 					throw new Exception("unexpected element: " + nodeName);
 				}
@@ -42,13 +45,13 @@ public class MyBody {
 		return body;
 	}
 
-	public void toOutput(OutputDocument outputDocument) throws Exception {
+	public void toOutput(OutputDocument outputDocument, Converter converter) throws Exception {
 
 		for (MyElement element : elements) {
 
 			if (element instanceof MyParagraph) {
 				MyParagraph myParagraph = (MyParagraph) element;
-				myParagraph.toOutput(outputDocument);
+				myParagraph.toOutput(outputDocument, converter);
 
 			} else {
 				throw new Exception("Unexpected element type: " + element.getClass().getSimpleName());
