@@ -41,6 +41,8 @@ public class MyParagraph extends MyElement {
 					// ok
 				} else if ("w:hyperlink".equals(nodeName)) {
 					paragraph.elements.add(MyHyperlink.create(childElement, level + 1));
+				} else if ("w:del".equals(nodeName)) {
+					// ok
 				} else {
 					throw new Exception("unexpected element: " + nodeName);
 				}

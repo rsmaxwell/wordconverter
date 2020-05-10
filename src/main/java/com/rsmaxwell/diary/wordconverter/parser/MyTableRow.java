@@ -6,7 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class MyTableRow {
+public class MyTableRow extends MyElement {
 
 	private ArrayList<MyTableColumn> columns = new ArrayList<MyTableColumn>();
 
