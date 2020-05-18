@@ -76,6 +76,7 @@ public class App {
 			String fragmentDirName = line.getOptionValue("f");
 
 			Converter converter = new Converter(baseDirName, fragmentDirName);
+			converter.summary();
 			converter.clearDocumentDir();
 			converter.unzip();
 			converter.initialiseRelationships();

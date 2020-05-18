@@ -165,4 +165,10 @@ public class Converter {
 	public Relationships getRelationships() {
 		return relationships;
 	}
+
+	public void summary() throws IOException {
+		System.out.println("WordConverter: " + Version.version());
+		System.out.println("Reading: " + wordDocument.getCanonicalPath());
+		System.out.println("Writing: " + fragmentHtml.getCanonicalPath());
+	}
 }
